@@ -15,13 +15,24 @@
  */
 package com.exactpro.th2.lib.fix
 
-import java.time.ZonedDateTime
-import java.time.temporal.Temporal
+import kotlin.random.Random
 
-class Util {
+class FixUtil {
 
     private var nextID = 1;
     fun generateClOrdID(): String {
         return (System.currentTimeMillis() + nextID++).toString();
+    }
+
+    companion object {
+        @JvmStatic
+        fun generateHexString(): String {
+            return java.lang.Long.toHexString(java.lang.Double.doubleToLongBits(Math.random()))
+        }
+
+        @JvmStatic
+        fun generateInteger(bound: Int): Int {
+            return Random.nextInt(bound);
+        }
     }
 }
