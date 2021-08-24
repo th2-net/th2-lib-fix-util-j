@@ -26,12 +26,14 @@ class FixUtil {
         return (System.currentTimeMillis() + nextID++).toString();
     }
 
-    @JvmOverloads
-    fun generateTransactTime(dateTime: String = ""): LocalDateTime {
-        return DateUtil.modifyLocalDateTime(dateTime);
-    }
-
     companion object {
+        @JvmStatic
+        @JvmOverloads
+        fun generateTransactTime(dateTime: String = ""): LocalDateTime {
+            return DateUtil.modifyLocalDateTime(dateTime);
+        }
+
+
         @JvmStatic
         fun generateHexString(): String {
             return java.lang.Long.toHexString(java.lang.Double.doubleToLongBits(Math.random()))
