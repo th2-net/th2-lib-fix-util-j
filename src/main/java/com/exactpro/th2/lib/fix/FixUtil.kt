@@ -15,6 +15,8 @@
  */
 package com.exactpro.th2.lib.fix
 
+import com.exactpro.th2.lib.fix.util.DateTimeUtility
+import java.time.LocalDateTime
 import kotlin.random.Random
 
 class FixUtil {
@@ -22,6 +24,11 @@ class FixUtil {
     private var nextID = 1;
     fun generateClOrdID(): String {
         return (System.currentTimeMillis() + nextID++).toString();
+    }
+
+    @JvmOverloads
+    fun generateTransactTime(dateTime: String = ""): LocalDateTime {
+        return DateUtil.modifyLocalDateTime(dateTime);
     }
 
     companion object {
